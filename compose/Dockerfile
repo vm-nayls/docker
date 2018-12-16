@@ -4,10 +4,6 @@ RUN apk add --update bash \
                     curl \
                     openssh \
                     gettext \
-                    rm -rf /var/cache/apk/*
+                    py-pip
 
-RUN curl -sSL https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && \
-    chmod +x /usr/local/bin/docker-compose
-
-COPY ./entrypoint.sh /
-ENTRYPOINT ["entrypoint.sh"]
+RUN pip install --upgrade pip && pip install docker-compose
