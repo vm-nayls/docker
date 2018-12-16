@@ -4,6 +4,7 @@ RUN apk add --update bash \
                     curl \
                     openssh \
                     gettext \
-                    py-pip
+                    py-pip \
+            && rm -rf /var/cache/apk/*
 
 RUN pip install --upgrade pip && pip install docker-compose
